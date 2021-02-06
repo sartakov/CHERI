@@ -62,10 +62,10 @@ sudo modprobe pcieportal
 So at this point, you can run the ready-to-use system:
 
 ```
-sudo ./ssith-aws-fpga/build/ssith_aws_fpga --dtb ./ssith-aws-fpga/build/devicetree.dtb --elf ./cheri/output/sdk/bbl-fett/riscv64-purecap/bbl --elf ./cheri/output/rootfs-riscv64-hybrid/boot/kernel.CHERI-FETT/kernel --debug-log --block ./cheri/output/cheribsd-riscv64-hybrid.img
+sudo ./ssith-aws-fpga/build/ssith_aws_fpga --dtb ./ssith-aws-fpga/build/devicetree.dtb --elf ./cheri/output/sdk/bbl-fett/riscv64-purecap/bbl --elf ./cheri/output/rootfs-riscv64-hybrid/boot/kernel.CHERI-FETT/kernel --block ./cheri/output/cheribsd-riscv64-hybrid.img
 ```
 
-It starts almost instant, but need time to boot. The expected output when everything is ok: 
+It starts almost instant, but need time to boot. The expected output when everything is ok with enabled debug (--debug-log): 
 ```
 romBuffer=7f405db08010
 ethernet device 0x565370dae850 virtio net device 0x565370daecf0 at addr 40000000
