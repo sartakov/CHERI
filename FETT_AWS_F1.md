@@ -11,6 +11,7 @@ sudo apt ugprade
 ```
 
 ## Build CheriBSD with FETT kernel and BBL
+In this example we build a hybrid kernel, to run purecap you should use `purecap` instead of `hybrid`
 ```
 sudo apt install autoconf automake libtool pkg-config clang bison cmake ninja-build samba flex texinfo libglib2.0-dev libpixman-1-dev libarchive-dev libarchive-tools libbz2-dev libattr1-dev libcap-ng-dev
 
