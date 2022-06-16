@@ -17,7 +17,7 @@ sudo apt install autoconf automake libtool pkg-config clang bison cmake ninja-bu
 
 git clone https://github.com/CTSRD-CHERI/cheribuild.git
 cd cheribuild/
-./cheribuild.py disk-image-riscv64-hybrid --cheribsd-riscv64-hybrid/build-fett-kernels -d
+./cheribuild.py disk-image-riscv64-hybrid --cheribsd-riscv64-hybrid/build-fett-kernels -d --enable-hybrid-targets
 ./cheribuild.py bbl-fett-baremetal-riscv64-purecap
 cd ..
 ```
