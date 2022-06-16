@@ -13,12 +13,12 @@ sudo apt ugprade
 ## Build CheriBSD with FETT kernel and BBL
 In this example we build a hybrid kernel, to run purecap you should use `purecap` instead of `hybrid`
 ```
-sudo apt install autoconf automake libtool pkg-config clang bison cmake ninja-build samba flex texinfo libglib2.0-dev libpixman-1-dev libarchive-dev libarchive-tools libbz2-dev libattr1-dev libcap-ng-dev
+sudo apt install autoconf automake libtool pkg-config clang bison cmake ninja-build samba flex texinfo libglib2.0-dev libpixman-1-dev libarchive-dev libarchive-tools libbz2-dev libattr1-dev libcap-ng-dev libssl-dev
 
 git clone https://github.com/CTSRD-CHERI/cheribuild.git
 cd cheribuild/
 ./cheribuild.py disk-image-riscv64-hybrid --cheribsd-riscv64-hybrid/build-fett-kernels -d --enable-hybrid-targets
-./cheribuild.py bbl-fett-baremetal-riscv64-purecap
+./cheribuild.py bbl-fett-baremetal-riscv64-purecap (bbl-gfe-baremetal-riscv64-purecap)
 cd ..
 ```
 
@@ -26,6 +26,7 @@ cd ..
 
 ```
 git clone https://github.com/aws/aws-fpga.git
+cd aws-fpga
 . ./sdk_setup.sh
 sudo chmod u+s /usr/local/bin/fpga-local-cmd
 ```
@@ -39,6 +40,7 @@ sudo fpga-load-local-image -S 0 -I agfi-026d853003d6c433a
 
 ```
 sudo apt-get install cmake device-tree-compiler build-essential libssl-dev libcurl4-openssl-dev libsdl-dev libelf-dev
+git clone https://github.com/acceleratedtech/ssith-aws-fpga.git
 cd ssith-aws-fpga/
 git submodule update --init --recursive
 mkdir build
@@ -57,6 +59,10 @@ sudo apt-get update
 sudo apt-get install connectal
 sudo modprobe portalmem
 sudo modprobe pcieportal
+```
+
+```
+sudo apt-get install buildcache dkms fpgajtag fpgamake libfontconfig1-dev libfreetype6-dev libxft-dev libxrender-dev pciescan python3-gevent python3-gflags python3-greenlet python3-ply
 ```
 
 So at this point, you can run the ready-to-use system:
@@ -351,3 +357,10 @@ bbl loader
 ```
 You probably passed wrong ELF binaries: BBL and/or kernel
 
+
+### Changelog
+
+#### 16.06.22 
+
+* add libssl-dev
+* `--enable-hybrid-targets` for cheribuild
