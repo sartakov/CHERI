@@ -18,9 +18,11 @@ sudo apt install autoconf automake libtool pkg-config clang bison cmake ninja-bu
 git clone https://github.com/CTSRD-CHERI/cheribuild.git
 cd cheribuild/
 ./cheribuild.py disk-image-riscv64-hybrid --cheribsd-riscv64-hybrid/build-fett-kernels -d --enable-hybrid-targets
-./cheribuild.py bbl-fett-baremetal-riscv64-purecap (bbl-gfe-baremetal-riscv64-purecap)
+./cheribuild.py bbl-fett-baremetal-riscv64-purecap 
 cd ..
 ```
+
+Update 16.06.22: the `bbl-fett-baremetal-riscv64-purecap` target doesn't exist anymore. 
 
 ## Build AWS FPGA utility to manipulate the FPGA board
 
@@ -60,6 +62,9 @@ sudo apt-get install connectal
 sudo modprobe portalmem
 sudo modprobe pcieportal
 ```
+
+Update 16.06.22: the package is broken. the driver needs to be built manually and older version. 
+
 
 ```
 sudo apt-get install buildcache dkms fpgajtag fpgamake libfontconfig1-dev libfreetype6-dev libxft-dev libxrender-dev pciescan python3-gevent python3-gflags python3-greenlet python3-ply
@@ -364,3 +369,5 @@ You probably passed wrong ELF binaries: BBL and/or kernel
 
 * add libssl-dev
 * `--enable-hybrid-targets` for cheribuild
+* The `bbl-fett-baremetal-riscv64-purecap` target doesn't exist anymore
+* connectal package and driver are broken and require manual build/rollback 
